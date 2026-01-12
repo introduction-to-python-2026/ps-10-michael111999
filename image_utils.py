@@ -25,7 +25,7 @@ def edge_detection(image):
                     [-1, 0, 1]])
     edges_x = convolve2d(gray_image, kernelX, mode='same')
     edges_y = convolve2d(gray_image, kernelY, mode='same')
-    sobel_final = np.sqrt(edges_x**2 + edges_y**2)
+    magnitude = np.sqrt(edges_x**2 + edges_y**2)
 
     # 4. Display the result
     plt.figure(figsize=(10, 5))
@@ -33,3 +33,4 @@ def edge_detection(image):
     plt.title('Sobel Edge Detection')
     plt.axis('off')
     plt.show()
+    magnitude = (magnitude / magnitude.max()) * 255

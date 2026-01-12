@@ -34,3 +34,4 @@ def edge_detection(image):
     plt.axis('off')
     plt.show()
     magnitude = (magnitude / magnitude.max()) * 255
+    return magnitude

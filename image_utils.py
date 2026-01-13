@@ -5,7 +5,9 @@ from scipy.signal import convolve2d
 def load_image(path):
     """Loads an image and returns a numpy array."""
     # Ensure it's converted to RGB to handle PNGs or JPEGs consistently
-    return np.array(Image.open(path).convert('RGB'))
+    colorImg = np.array(Image.open(path).convert('RGB'))
+    image = 0.3333 * colorImg[:,:,0] + 0.3333 * colorImg[:,:,1] + 0.3333 * colorImg[:,:,2]
+    return image
 
 def edge_detection(image):
     """Applies Sobel filter and returns magnitude."""

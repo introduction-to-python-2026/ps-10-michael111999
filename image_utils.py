@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def load_image(path):
     # This function takes the string and returns the actual array
     img = Image.open(path)
-    plt.imshow(img)
+
     return np.array(img)
 
 
@@ -37,9 +37,7 @@ def edge_detection(image):
     # 5. Normalize (Scale to 0-255)
     if sobel_filtered.max() > 0:
         sobel_filtered = (sobel_filtered / sobel_filtered.max()) * 255
-    plt.imshow(sobel_filtered, cmap='gray')
-    plt.axis('off')
-    plt.show()
+    
     
     return sobel_filtered
 

@@ -22,7 +22,7 @@ edge_binary = edgeMAG > threshold
 
 # Save the resulting edge-detected image as a .png
 # Multiplying by 255 ensures the binary image is visible white-on-black
-plt.imsave('smurf_edges_detected.png', edge_binary.astype(np.uint8) * 255, cmap='gray')
+plt.imsave('smurf.edges.png', edge_binary.astype(np.uint8) * 255, cmap='gray')
 
 # Optional: Display the result
 plt.imshow(edge_binary, cmap='gray')

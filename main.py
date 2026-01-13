@@ -6,7 +6,7 @@ from image_utils import load_image, edge_detection
 
 # Step 1: Load the original image
 # Use the exact filename in your repository
-image = load_image('lena.jpg')
+image = load_image('smurf.jpg')
 
 # Step 2: Perform noise suppression
 # ball(3) creates a disk-like neighborhood for the median filter
@@ -22,7 +22,7 @@ edge_binary = edgeMAG > threshold
 
 # Save the resulting edge-detected image as a .png
 # Multiplying by 255 ensures the binary image is visible white-on-black
-plt.imsave('lena_edges_detected.png', edge_binary.astype(np.uint8) * 255, cmap='gray')
+plt.imsave('smurf_edges_detected.png', edge_binary.astype(np.uint8) * 255, cmap='gray')
 
 # Optional: Display the result
 plt.imshow(edge_binary, cmap='gray')

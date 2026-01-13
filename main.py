@@ -10,6 +10,8 @@ from skimage.morphology import ball
 
 clean_image = median(image, ball(3))
 edge_detection('smurf.jpg')
+edge_image = Image.fromarray(edge_binary)
+edge_image.save('my_edges.png')
                 
                                  
                                  

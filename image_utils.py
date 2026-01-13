@@ -40,4 +40,4 @@ def edge_detection(image):
         magnitude = (magnitude / magnitude.max()) * 255
     
     return magnitude.astype(np.uint8)
-Would you like me to provide a debugging snippet that prints out the
+

@@ -5,15 +5,13 @@ from scipy.signal import convolve2d
 def load_image(path):
     """Loads an image and returns a numpy array."""
     # Ensure it's converted to RGB to handle PNGs or JPEGs consistently
-    colorImg = np.array(Image.open(path).convert('RGB'))
-    image = 0.3333 * colorImg[:,:,0] + 0.3333 * colorImg[:,:,1] + 0.3333 * colorImg[:,:,2]
-    return image
+    return np.array(Image.open(path).convert('RGB'))
 
 def edge_detection(image):
     """Applies Sobel filter and returns magnitude."""
     # 1. Convert to grayscale
     if image.ndim == 3:
-        image = 0.3333 * image[:,:,0] + 0.3333 * image[:,:,1] + 0.3333 * image[:,:,2]
+        image = 0.2989 * image[:,:,0] + 0.5870 * image[:,:,1] + 0.1140 * image[:,:,2]
     
     # 2. Define Sobel Kernels
     kx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])
@@ -26,7 +24,7 @@ def edge_detection(image):
     # 4. Calculate Magnitude
     magnitude = np.sqrt(gx**2 + gy**2)
 
-    # # 5. Normalize to 0-255 range
+    # 5. Normalize to 0-255 range
     mag_max = magnitude.max()
     if mag_max > 0:
         magnitude = (magnitude / mag_max) * 255

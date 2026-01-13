@@ -11,7 +11,7 @@ def edge_detection(image):
     """Applies Sobel filter and returns magnitude."""
     # 1. Convert to grayscale
     if image.ndim == 3:
-        image = 0.2989 * image[:,:,0] + 0.5870 * image[:,:,1] + 0.1140 * image[:,:,2]
+        image = 0.3333 * image[:,:,0] + 0.3333 * image[:,:,1] + 0.3333 * image[:,:,2]
     
     # 2. Define Sobel Kernels
     kx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])
@@ -25,8 +25,8 @@ def edge_detection(image):
     magnitude = np.sqrt(gx**2 + gy**2)
 
     # # 5. Normalize to 0-255 range
-    # mag_max = magnitude.max()
-    # if mag_max > 0:
-    #     magnitude = (magnitude / mag_max) * 255
+    mag_max = magnitude.max()
+    if mag_max > 0:
+        magnitude = (magnitude / mag_max) * 255
     
     return magnitude

@@ -24,9 +24,9 @@ def edge_detection(image):
     # 4. Calculate Magnitude
     magnitude = np.sqrt(gx**2 + gy**2)
 
-    # 5. Normalize to 0-255 range
-    mag_max = magnitude.max()
-    if mag_max > 0:
-        magnitude = (magnitude / mag_max) * 255
+    # # 5. Normalize to 0-255 range
+    # mag_max = magnitude.max()
+    # if mag_max > 0:
+    #     magnitude = (magnitude / mag_max) * 255
     
     return magnitude
